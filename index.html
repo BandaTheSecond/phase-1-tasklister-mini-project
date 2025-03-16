@@ -1,17 +1,31 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My task lister assistant</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced To-Do List</title>
+    <style>
+        body { font-family: Arial, sans-serif; 
+        background-color: rgb(43, 116, 226);}
+        ul { list-style: none; padding: 0; }
+        li { 
+            margin: 5px 0; padding: 10px; 
+            display: flex; justify-content: space-between; 
+            align-items: center; border-radius: 5px;
+        }
+        .high { background-color: red; color: white; }
+        .medium { background-color: yellow; color: black; }
+        .low { background-color: green; color: white; }
+        .delete-btn, .edit-btn { cursor: pointer; padding: 5px; margin-left: 5px; border: none; }
+        .delete-btn { background: red; color: white; }
+        .edit-btn { background: blue; color: white; }
+    </style>
 </head>
 <body>
-  <div id="main-content">
-    <h1>My task lister assistant</h1>
-
-    <form id="create-task-form" action="" method="POST">
-      <label for="new-task-description">Enter New Task:</label>
-      <input type="text" id="new-task-description" name="new-task-description" placeholder="Task_description" required/>
+    <h2>Enhanced To-Do List</h2>
+    
+    <form id="task-form">
+        <input type="text" id="task" placeholder="Task" required />
         <input type="text" id="user" placeholder="Assigned To" required />
         <input type="date" id="due-date" required />
         
@@ -20,19 +34,15 @@
             <option value="medium">Medium Priority</option>
             <option value="low">Low Priority</option>
         </select>
-
-      <input type="submit" value="Add Task">
-      <button type="button" id="sort">Sort by Priority</button>
+        
+        <button type="submit">Add Task</button>
+        <button type="button" id="sort">Sort by Priority</button>
     </form>
+    <h3>Input Live Preview:</h3>
+    <p id="live-preview"></p>
 
-    <div id="list">
-      <h2><b>Tasks Added:</b></h2>
-      <ol id="tasks">
-      </ol>
-    </div>
-
+    <ul id="task-list"></ul>
     <script src="./src/index.js"></script>
-  </div>
-
 </body>
 </html>
+
