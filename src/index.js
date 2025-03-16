@@ -2,13 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("task-form");
   const taskList = document.getElementById("task-list");
   const sortButton = document.getElementById("sort");
-  const livePreview = document.getElementById("live-preview");
+  
   let tasks = [];
   let sortAscending = true; 
 
-  taskInput.addEventListener("input", () => {
-    livePreview.textContent = taskInput.value ? `Task: ${taskInput.value}` : "";});
-
+  
   form.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
       tasks.push(newTask);
       renderTasks();
       form.reset();
-      livePreview.textContent = ""; 
   });
 
   function renderTasks() {
